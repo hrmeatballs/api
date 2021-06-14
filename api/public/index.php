@@ -14,7 +14,7 @@ $namespaces['levels'] = [
         ],
         [
             "Usage" => "Returns all levels from specified id",
-            "URL" => "http://" . BASE_URL. "v1/levels/[worlds-id]"
+            "URL" => "http://" . BASE_URL. "v1/levels/?world_id=[worlds-id]"
         ],
     ],
     "URL"=> "/levels",
@@ -56,6 +56,7 @@ $namespaces['teachers'] = [
 
 $namespaces['worlds'] = [
     "Namespace:"=> "worlds",
+    "Methods"=> ['GET'],
     "Methods"=> ['GET'],
     "Description" => "Get all worlds ",
     "Endpoints"=> [
