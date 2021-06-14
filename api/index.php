@@ -10,11 +10,11 @@ $namespaces['levels'] = [
     "Endpoints"=> [
         [
             "Usage" => "Returns all levels",
-            "URL" => "https://" . BASE_URL. "levels/",
+            "URL" => "http://" . BASE_URL. "levels/",
         ],
         [
             "Usage" => "Returns all levels from specified id",
-            "URL" => "https://" . BASE_URL. "levels/[world-id]"
+            "URL" => "http://" . BASE_URL. "levels/[worlds-id]"
         ],
     ],
     "URL"=> "/levels",
@@ -27,14 +27,14 @@ $namespaces['students'] = [
     "Endpoints"=> [
         [
             "Usage" => "Returns all students",
-            "URL" => "https://" . BASE_URL. "students/?list",
+            "URL" => "http://" . BASE_URL. "students/?list",
         ],
         [
             "Usage" => "Get student by ID",
-            "URL" => "https://" . BASE_URL . "students/" . '?id=[id]',
+            "URL" => "http://" . BASE_URL . "students/" . '?id=[id]',
         ],
     ],
-    "URL"=> "https:/" . BASE_URL . "students",
+    "URL"=> "http://" . BASE_URL . "students",
 ];
 
 $namespaces['teachers'] = [
@@ -44,14 +44,31 @@ $namespaces['teachers'] = [
     "Endpoints"=> [
         [
             "Usage" => "Returns all teachers",
-            "URL" => "https://" . BASE_URL. "teachers/?list",
+            "URL" => "http://" . BASE_URL. "teachers/?list",
         ],
         [
             "Usage" => "Get teacher by ID",
-            "URL" => "https://" . BASE_URL . "teachers/" . '?id=[id]',
+            "URL" => "http://" . BASE_URL . "teachers/" . '?id=[id]',
         ],
     ],
-    "URL"=> "https://" . BASE_URL . "students",
+    "URL"=> "http://" . BASE_URL . "students",
+];
+
+$namespaces['worlds'] = [
+    "Namespace:"=> "worlds",
+    "Methods"=> ['GET'],
+    "Description" => "Get all worlds ",
+    "Endpoints"=> [
+        [
+            "Usage" => "Returns all worlds",
+            "URL" => "http://" . BASE_URL. "worlds/?list",
+        ],
+        [
+            "Usage" => "Get world by ID",
+            "URL" => "http://" . BASE_URL . "worlds/" . '?id=[id]',
+        ],
+    ],
+    "URL"=> "http://" . BASE_URL . "students",
 ];
 
 $documentation['Description'] = "Klank avontuur Game API v1 ";
