@@ -1,14 +1,24 @@
-web:
-  image: nginx:latest
-  ports:
-    - "8080:80"
-  volumes:
-  - ./api:/api
-  - ./site.conf:/etc/nginx/conf.d/site.conf
-  - ./site.conf:/etc/nginx/conf.d/default.conf
-  links:
-    - php
-php:
-  image: php:7-fpm
-  volumes:
-    - ./api:/api
+version: '3'
+
+services:
+  web:
+    image: nginx:alpine
+    ports:
+      - "8080:80"
+    volumes:
+      - ./api:/api
+      - ./conf.d:/etc/nginx/conf.d
+    networks:
+      - nginxphp
+
+  php:
+    build: .
+    volumes:
+      - ./api:/api
+    expose:
+      - 9000
+    networks:
+      - nginxphp
+
+networks:
+  nginxphp:
