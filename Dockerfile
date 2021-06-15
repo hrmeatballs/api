@@ -1,3 +1,3 @@
-FROM php:7.4-fpm
-RUN docker-php-ext-install pdo pdo_mysql
-COPY api/ /var/www/html/
+FROM nginx:alpine
+COPY ./api /api
+COPY ./conf.d /etc/nginx/conf.d
