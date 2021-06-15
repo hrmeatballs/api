@@ -5,7 +5,21 @@ require_once ROOT . '/app/includes/settings.php';
 
 
 if(empty($_GET)){
-echo 'no parameters were given';
+    try {
+        $world_id = $_GET['world_id'];
+        if (is_numeric($world_id)) {
+            header('Content-type: application/json');
+            $data = $db->Select("SELECT * FROM `levels`");
+            json_encode($data);
+            if (empty($data)) {
+                echo 'No levels found';
+            } else {
+                echo $data;
+            }
+        }
+    } catch (Exception $e) {
+        var_dump($e);
+    }
 }else{
     switch (($_GET)) {
         case isset($_GET['world_id']):
