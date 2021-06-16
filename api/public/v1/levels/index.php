@@ -8,7 +8,7 @@ if(empty($_GET)){
     try {
         header('Content-type: application/json');
         $data = $db->Select("SELECT * FROM levels");
-        json_encode($data);
+        $data = json_encode($data);
         if (empty($data)) {
             echo 'No levels found';
         } else {
