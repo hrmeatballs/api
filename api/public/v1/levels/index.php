@@ -29,7 +29,7 @@ if(empty($_GET)){
                     if (empty($data)) {
                         echo 'No levels found for worlds with id: ' . $_GET['world_id'];
                     } else {
-                        echo $data;
+                        echo json_encode($data);
                     }
                 }
             } catch (Exception $e) {
