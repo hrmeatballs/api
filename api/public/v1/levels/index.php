@@ -6,16 +6,13 @@ require_once ROOT . '/app/includes/settings.php';
 
 if(empty($_GET)){
     try {
-        $world_id = $_GET['world_id'];
-        if (is_numeric($world_id)) {
-            header('Content-type: application/json');
-            $data = $db->Select("SELECT * FROM `levels`");
-            json_encode($data);
-            if (empty($data)) {
-                echo 'No levels found';
-            } else {
-                echo $data;
-            }
+        header('Content-type: application/json');
+        $data = $db->Select("SELECT * FROM `levels`");
+        json_encode($data);
+        if (empty($data)) {
+            echo 'No levels found';
+        } else {
+            echo $data;
         }
     } catch (Exception $e) {
         var_dump($e);
@@ -34,6 +31,20 @@ if(empty($_GET)){
                     } else {
                         echo $data;
                     }
+                }
+            } catch (Exception $e) {
+                var_dump($e);
+            }
+            break;
+        case isset($_GET['list']):
+            try {
+                header('Content-type: application/json');
+                $data = $db->Select("SELECT * FROM `levels`");
+                json_encode($data);
+                if (empty($data)) {
+                    echo 'No levels found';
+                } else {
+                    echo $data;
                 }
             } catch (Exception $e) {
                 var_dump($e);
