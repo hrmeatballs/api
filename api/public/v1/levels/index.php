@@ -7,7 +7,7 @@ require_once ROOT . '/app/includes/settings.php';
 if(empty($_GET)){
     try {
         header('Content-type: application/json');
-        $data = $db->Select("SELECT * FROM `levels`");
+        $data = $db->Select("SELECT * FROM levels");
         json_encode($data);
         if (empty($data)) {
             echo 'No levels found';
